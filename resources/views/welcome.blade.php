@@ -57,7 +57,7 @@
                                 <input type="text" id="search_city" class="rounded-pill" name="search_city" placeholder="Type a city name..." onkeyup="check()" value=""/>
                             </div>
                             <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-lg btn-block btn-warning mt-4 rounded-pill" id="submit" disabled onclick="formSubmit()">Go!</button>
+                                <button type="submit" class="btn btn-lg btn-block btn-warning mt-4 rounded-pill" id="submit" disabled>Go!</button>
                             </div>
 
                         </form>
@@ -76,14 +76,12 @@
                 let longitude = document.getElementById('longitude').value;
                 let submit = document.getElementById("submit");
 
-                if (text != '') {
+                if (text != '' || (latitude != '' && longitude != '')) {
                     frm.action = '/city/' + text;
                     submit.disabled = false;
                 }
-                // alert(frm.action);
             }
         }
-
         function latlong() {
             let latitude = document.getElementById('latitude').value;
             let longitude = document.getElementById('longitude').value;
@@ -91,16 +89,6 @@
             if (latitude != null && longitude != null) {
                 let frm = document.getElementById('form');
                 frm.action = '/latlong/';
-                submit.disabled = false;
-            }
-        }
-
-        function formSubmit() {
-            let latitude = document.getElementById('latitude').value;
-            let longitude = document.getElementById('longitude').value;
-            let search = document.getElementById('search_city').value;
-            let submit = document.getElementById("submit");
-            if ((latitude != '' && longitude != '') || search != '') {
                 submit.disabled = false;
             }
         }

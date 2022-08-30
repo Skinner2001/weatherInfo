@@ -48,12 +48,14 @@
     input {
         padding: 10px;
     }
-
-    .box {
-        color:  white;
-        animation-name: example;
-        animation-duration: 4s;
-        border:1px solid lightslategrey;
+    canvas {
+        background-color: #5079FA;
+    }
+    .zoom {
+        padding: 50px;
+        transition: transform .2s; /* Animation */
+        cursor: pointer;
+        margin: 0 auto;
     }
 
     @keyframes example {
@@ -63,6 +65,9 @@
     @keyframes example2 {
         from {opacity: 0;color:darkred}
         to {opacity: 1;color:white}
+    }
+    .zoom:hover {
+        transform: scale(2.0); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     }
 </style>
 <body>
